@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#142e2b" />
+    <title>Energy Data Core — aggregation demo</title>
+    <link rel="stylesheet" href="/demo/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">≋</span> Energy Data Core</a>
+      <a class="header-link" href="#method">How it works <span aria-hidden="true">↗</span></a>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="title">
+        <div>
+          <p class="eyebrow">A small library for energy data</p>
+          <h1 id="title">Every sum needs<br />its coverage.</h1>
+          <p class="intro-copy">Combine hourly demand across three fictional regions. Then remove some observations and see exactly what remains in the result.</p>
+        </div>
+        <aside class="source-note">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div><strong>Synthetic data only</strong><p>24 authored hourly observations per region. No live feeds or provider requests.</p></div>
+        </aside>
+      </section>
+
+      <section class="workspace" aria-labelledby="chart-title">
+        <div class="workspace-heading">
+          <div><p class="eyebrow">01 / Aggregation</p><h2 id="chart-title">A day of regional demand</h2><p class="subcopy">Hourly power demand, in megawatts (MW) · fictional day · UTC</p></div>
+          <fieldset class="scenario-picker"><legend>Data scenario</legend><div class="segmented"><button type="button" data-scenario="complete" aria-pressed="false">Complete day</button><button type="button" data-scenario="gaps" aria-pressed="true">With gaps</button></div></fieldset>
+        </div>
+        <div id="load-error" role="alert" hidden></div>
+        <div class="stats" aria-live="polite" aria-atomic="true">
+          <div><span class="stat-label">Fully covered hours</span><strong id="complete-count">—</strong><span class="stat-detail">All 3 regions reported</span></div>
+          <div><span class="stat-label">Partially covered hours</span><strong id="partial-count" class="amber">—</strong><span class="stat-detail">A sum of available values</span></div>
+          <div><span class="stat-label">Hours without data</span><strong id="missing-count">—</strong><span class="stat-detail">Null, never filled with zero</span></div>
+        </div>
+        <div class="chart-wrap"><svg id="chart" viewBox="0 0 1040 345" role="img" aria-labelledby="svg-title svg-desc"><title id="svg-title">Hourly demand by region</title><desc id="svg-desc">Loading the synthetic aggregation demo.</desc></svg></div>
+        <div class="chart-footer"><ul class="legend" aria-label="Chart legend"><li><span class="swatch region-a"></span>Region A</li><li><span class="swatch region-b"></span>Region B</li><li><span class="swatch region-c"></span>Region C</li><li><span class="swatch partial-swatch"></span>Partial coverage</li></ul><span class="chart-hint">Each stack sums the values available that hour.</span></div>
+        <p id="scenario-note" class="scenario-note"></p>
+        <details class="data-details"><summary>Inspect the 24 hourly observations <span aria-hidden="true">↓</span></summary><div class="table-scroll"><table><caption class="sr-only">Synthetic hourly demand and aggregation results. All demand values are in megawatts.</caption><thead><tr><th scope="col">Hour (UTC)</th><th scope="col">Region A (MW)</th><th scope="col">Region B (MW)</th><th scope="col">Region C (MW)</th><th scope="col">Available sum (MW)</th><th scope="col">Coverage</th></tr></thead><tbody id="data-rows"></tbody></table></div></details>
+      </section>
+
+      <section class="method" id="method" aria-labelledby="method-title">
+        <div><p class="eyebrow">02 / The rule</p><h2 id="method-title">Missing is a data state.</h2><p>A reported zero participates in the sum and counts toward coverage. A missing observation does neither. When every region is missing, the result is <code>null</code>.</p><p>This example flags any hour with fewer than three reporting regions as partial. Coverage is a count of regions, not a share of demand.</p></div>
+        <div class="code-card"><div class="code-heading"><span>Runs in your browser</span><span>JavaScript</span></div><pre><code>const { points, coverage } =
+  entsoe.sumPoints(regionSeries);
+
+// Require all three regions in this demo.
+const partial =
+  entsoe.partialAbove(coverage, 1);</code></pre><p>The chart and table use these library results directly. Values are power in MW; the chart does not report daily energy in MWh.</p></div>
+      </section>
+      <footer>Energy Data Core <span>Independent demo · authored synthetic inputs</span></footer>
+    </main>
+    <script type="module" src="/demo/main.js"></script>
+  </body>
+</html>

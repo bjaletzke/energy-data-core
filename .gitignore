@@ -1,0 +1,10 @@
+node_modules/
+dist/
+demo-dist/
+.cache/
+.env
+.env.*
+.dev.vars*
+.wrangler/
+*.tgz
+.DS_Store

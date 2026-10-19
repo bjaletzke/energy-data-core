@@ -1,0 +1,63 @@
+{
+  "name": "energy-data-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Runtime-neutral European energy data parsing, time series and coverage-aware calculations.",
+  "license": "MIT",
+  "packageManager": "bun@1.4.2",
+  "engines": {
+    "node": ">=22",
+    "bun": ">=1.3"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./storage": {
+      "types": "./dist/model.d.ts",
+      "import": "./dist/model.js"
+    },
+    "./lng": {
+      "types": "./dist/lng.d.ts",
+      "import": "./dist/lng.js"
+    },
+    "./regions": {
+      "types": "./dist/regions.d.ts",
+      "import": "./dist/regions.js"
+    },
+    "./countries": {
+      "types": "./dist/countries.d.ts",
+      "import": "./dist/countries.js"
+    },
+    "./entsoe": {
+      "types": "./dist/entsoe/index.d.ts",
+      "import": "./dist/entsoe/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "docs"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "bun test tests",
+    "check:boundary": "bun run scripts/check-boundary.ts",
+    "check": "bun run typecheck && bun test tests && bun run build && bun run check:boundary && node scripts/check-package.mjs",
+    "demo": "bun run build && bun run scripts/serve-demo.ts",
+    "demo:build": "bun run build && bun run scripts/build-demo.ts"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/bun": "1.3.0"
+  }
+}
