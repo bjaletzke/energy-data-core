@@ -12,6 +12,6 @@ assert.deepEqual(entsoe.sumPoints([[{ ts: 0, value: null }]]), { points: [{ ts: 
 const packed = JSON.parse(execFileSync("npm", ["pack", "--dry-run", "--json", "--ignore-scripts"], { encoding: "utf8" }))[0];
 assert(packed.files.length > 0);
 for (const { path } of packed.files) {
-  assert(/^(?:dist\/.*\.(?:js|d\.ts)|README\.md|CHANGELOG\.md|THIRD_PARTY_NOTICES\.md|LICENSE|docs\/[A-Z]+\.md|package\.json)$/.test(path), `Unexpected package entry: ${path}`);
+  assert(/^(?:dist\/.*\.(?:js|d\.ts)|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|SECURITY\.md|THIRD_PARTY_NOTICES\.md|LICENSE|docs\/[A-Z]+\.md|package\.json)$/.test(path), `Unexpected package entry: ${path}`);
 }
 console.log(`Node ESM consumer passed; npm package allowlist passed (${packed.files.length} files).`);

@@ -44,7 +44,9 @@
     "THIRD_PARTY_NOTICES.md",
     "LICENSE",
     "CHANGELOG.md",
-    "docs"
+    "docs",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
   ],
   "sideEffects": false,
   "scripts": {
@@ -59,5 +61,13 @@
   "devDependencies": {
     "typescript": "5.9.3",
     "@types/bun": "1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjaletzke/energy-data-core.git"
+  },
+  "homepage": "https://github.com/bjaletzke/energy-data-core#readme",
+  "bugs": {
+    "url": "https://github.com/bjaletzke/energy-data-core/issues"
   }
 }

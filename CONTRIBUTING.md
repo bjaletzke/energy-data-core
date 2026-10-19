@@ -1,7 +1,8 @@
 # Contributing
 
-The public contribution workflow will be enabled when the repository is published.
-For this candidate, run `bun install --frozen-lockfile` and `bun run check`.
+Report bugs and propose changes through [GitHub issues](https://github.com/bjaletzke/energy-data-core/issues).
+Pull requests are welcome. Run `bun install --frozen-lockfile`, `bun run check`
+and `bun run demo:build` before submitting a change.
 
 Use authored synthetic fixtures. Do not add production responses, credentials,
 provider tokens or operational configuration. Document units, UTC/local-time
@@ -12,5 +13,7 @@ Keep provider access and hosted-service orchestration outside the library. Inclu
 behavioural tests for meaningful format or calculation changes. The demo must run
 without provider keys and must keep synthetic examples clearly labelled.
 
-A private security-reporting destination must be configured before inviting public
-reports. Do not post credentials or sensitive findings in a public issue.
+Use [private vulnerability reporting](https://github.com/bjaletzke/energy-data-core/security/advisories/new)
+for security findings; see SECURITY.md. Do not post credentials or sensitive findings
+in a public issue. Contributions to project-owned code use the MIT licence in LICENSE;
+preserve relevant third-party notices.

@@ -1,5 +1,7 @@
 # Energy Data Core
 
+[![Check library and demo](https://github.com/bjaletzke/energy-data-core/actions/workflows/check.yml/badge.svg?branch=main)](https://github.com/bjaletzke/energy-data-core/actions/workflows/check.yml)
+
 A small TypeScript library for European energy data: storage and LNG parsing,
 ENTSO-E document parsing, time-series normalisation, aggregation and coverage.
 The library has no runtime dependencies, provider requests or hosting requirements.
@@ -11,9 +13,11 @@ under [MIT](LICENSE), credited to Energy Data Core contributors. Provider data
 rights are separate. The [registry attribution review](docs/REGISTRY.md) is complete:
 the inherited catalogue is excluded and zone mappings are caller-supplied.
 
-This repository is prepared locally and has not yet been published. npm publication
-is disabled; a public Git repository can retain that setting. See
-[release preparation](docs/RELEASE.md) for the remaining publication steps.
+Source is available at [bjaletzke/energy-data-core](https://github.com/bjaletzke/energy-data-core).
+This is the initial public source release; it has not been published to npm.
+`private: true` intentionally prevents npm publication and does not affect GitHub visibility.
+See [validation](docs/VALIDATION.md), [contributing](CONTRIBUTING.md) and
+[security reporting](SECURITY.md).
 
 ## Try the demo
 

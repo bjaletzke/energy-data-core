@@ -1,8 +1,9 @@
 # Changes
 
-## 0.1.0 candidate — unpublished
+## 0.1.0 — initial public source (19 October 2026)
 
-MIT licensed; provider data rights remain separate.
+MIT licensed; provider data rights remain separate. Source publication does not
+include an npm package or hosted demo deployment.
 
 Extracted storage/LNG parsing, ENTSO-E formats, time-series calculations, coverage
 and a synthetic browser demo into a runtime-neutral library. Excluded provider

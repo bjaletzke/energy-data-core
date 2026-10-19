@@ -31,9 +31,12 @@ Validated with Bun 1.4.2, Node.js 22.23.0 and TypeScript 5.9.3 on macOS.
 - The private source worktree remained clean after extraction.
 
 Not established: mobile browser acceptance, Cloudflare Worker runtime acceptance,
-current provider schema conformance or public CI.
+current provider schema conformance.
 The registry attribution review is complete for this release: the catalogue is
 excluded, and no claim to redistribution permission is made. MIT was selected by
-the owner and applied consistently to the project-owned code, demo and docs. The committed CI workflow is prepared
-but has not run on GitHub. No external repository, package publication or hosted
-application deployment was created.
+the owner and applied consistently to the project-owned code, demo and docs. The repository is public at
+[bjaletzke/energy-data-core](https://github.com/bjaletzke/energy-data-core). GitHub
+runs the complete check/build workflow on pushes and pull requests; inspect the
+[workflow results](https://github.com/bjaletzke/energy-data-core/actions/workflows/check.yml)
+for the current commit. Local evidence above is distinct from those CI results.
+No npm publication or hosted application deployment is part of source publication.
